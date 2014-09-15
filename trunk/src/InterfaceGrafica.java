@@ -1,5 +1,6 @@
-
+import java.math.BigDecimal;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
 /*
  * To change this template, choose Tools | Templates
@@ -11,6 +12,8 @@ import javax.swing.JButton;
  * @author Mohammad
  */
 public class InterfaceGrafica extends javax.swing.JFrame {
+    private int N_movimentos;
+    //private Arvore arvore = new Arvore();
     
     /**
      * Creates new form InterfaceGrafica
@@ -26,7 +29,7 @@ public class InterfaceGrafica extends javax.swing.JFrame {
         initComponents();
         setSize(600,400);
         setLocationRelativeTo(null);
-        
+
         JButton button_array [] = {btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9};
         
         //Reordena os números
@@ -40,7 +43,7 @@ public class InterfaceGrafica extends javax.swing.JFrame {
         }
         
     }
-
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,8 +63,13 @@ public class InterfaceGrafica extends javax.swing.JFrame {
         btn7 = new javax.swing.JButton();
         btn8 = new javax.swing.JButton();
         btn9 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        Jtxt1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
 
         jPanel1.setLayout(new java.awt.GridLayout(0, 3));
 
@@ -137,17 +145,50 @@ public class InterfaceGrafica extends javax.swing.JFrame {
         });
         jPanel1.add(btn9);
 
+        jLabel1.setText("Número de passos:");
+
+        Jtxt1.setEditable(false);
+        Jtxt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jtxt1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Jtxt1))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Jtxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(265, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 296, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -158,144 +199,419 @@ public class InterfaceGrafica extends javax.swing.JFrame {
         if(btn3.isVisible()== false){
             btn3.setText(btn6.getText());
             btn6.setVisible(false);
-            btn3.setVisible(true);            
-        }
-        if(btn5.isVisible()== false){
-            btn5.setText(btn6.getText());
-            btn6.setVisible(false);
-            btn5.setVisible(true);            
-        }
-        if(btn9.isVisible()== false){
-            btn9.setText(btn6.getText());
-            btn6.setVisible(false);
-            btn9.setVisible(true);            
+            btn3.setVisible(true);          
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));
+        }else{
+            if(btn5.isVisible()== false){
+                btn5.setText(btn6.getText());
+                btn6.setVisible(false);
+                btn5.setVisible(true);            
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));
+            }else{
+                if(btn9.isVisible()== false){
+                    btn9.setText(btn6.getText());
+                    btn6.setVisible(false);
+                    btn9.setVisible(true);            
+                    N_movimentos++;
+                    Jtxt1.setText(Integer.toString(N_movimentos));
+                }
+            }
         }
     }//GEN-LAST:event_btn6ActionPerformed
-
+    
+    public void troca6(){
+        if(btn3.isVisible()== false){
+            btn3.setText(btn6.getText());
+            btn6.setVisible(false);
+            btn3.setVisible(true);          
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));
+        }else{
+            if(btn5.isVisible()== false){
+                btn5.setText(btn6.getText());
+                btn6.setVisible(false);
+                btn5.setVisible(true);            
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));
+            }else{
+                if(btn9.isVisible()== false){
+                    btn9.setText(btn6.getText());
+                    btn6.setVisible(false);
+                    btn9.setVisible(true);            
+                    N_movimentos++;
+                    Jtxt1.setText(Integer.toString(N_movimentos));
+                }
+            }
+        }
+    }
+    
+    
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         // TODO add your handling code here:
         if(btn5.isVisible()== false){
             btn5.setText(btn8.getText());
             btn8.setVisible(false);
-            btn5.setVisible(true);            
+            btn5.setVisible(true);          
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));                
+        }else{
+            if(btn7.isVisible()==false){
+                btn7.setText(btn8.getText());
+                btn8.setVisible(false);
+                btn7.setVisible(true);
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));                
+            }else{
+                if(btn9.isVisible()==false){
+                    btn9.setText(btn8.getText());
+                    btn8.setVisible(false);
+                    btn9.setVisible(true);
+                    N_movimentos++;
+                    Jtxt1.setText(Integer.toString(N_movimentos));                
+                }                
+            }
         }
-        if(btn7.isVisible()==false){
-            btn7.setText(btn8.getText());
-            btn8.setVisible(false);
-            btn7.setVisible(true);
-        }
-        if(btn9.isVisible()==false){
-            btn9.setText(btn8.getText());
-            btn8.setVisible(false);
-            btn9.setVisible(true);
-        }
-        
     }//GEN-LAST:event_btn8ActionPerformed
-
+    public void troca8(){
+        if(btn5.isVisible()== false){
+                btn5.setText(btn8.getText());
+                btn8.setVisible(false);
+                btn5.setVisible(true);          
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));                
+        }else{
+                if(btn7.isVisible()==false){
+                    btn7.setText(btn8.getText());
+                    btn8.setVisible(false);
+                    btn7.setVisible(true);
+                    N_movimentos++;
+                    Jtxt1.setText(Integer.toString(N_movimentos));                
+                }else{
+                    if(btn9.isVisible()==false){
+                        btn9.setText(btn8.getText());
+                        btn8.setVisible(false);
+                        btn9.setVisible(true);
+                        N_movimentos++;
+                        Jtxt1.setText(Integer.toString(N_movimentos));                
+                    }                
+                }
+        }
+    }
+    
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
         // TODO add your handling code here:
         if(btn6.isVisible()== false){
             btn6.setText(btn9.getText());
             btn9.setVisible(false);
             btn6.setVisible(true);            
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));                
+        }else{
+            if(btn8.isVisible()==false){
+                btn8.setText(btn9.getText());
+                btn9.setVisible(false);
+                btn8.setVisible(true);
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));                
+            }            
         }
-        if(btn8.isVisible()==false){
-            btn8.setText(btn9.getText());
-            btn9.setVisible(false);
-            btn8.setVisible(true);
-        }
-
     }//GEN-LAST:event_btn9ActionPerformed
 
+    public void troca9(){
+        if(btn6.isVisible()== false){
+            btn6.setText(btn9.getText());
+            btn9.setVisible(false);
+            btn6.setVisible(true);            
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));                
+        }else{
+            if(btn8.isVisible()==false){
+                btn8.setText(btn9.getText());
+                btn9.setVisible(false);
+                btn8.setVisible(true);
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));                
+            }            
+        }
+    }
+    
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
         // TODO add your handling code here:
         if(btn4.isVisible()== false){
             btn4.setText(btn7.getText());
             btn7.setVisible(false);
             btn4.setVisible(true);            
-        }
-        if(btn8.isVisible()== false){
-            btn8.setText(btn7.getText());
-            btn7.setVisible(false);
-            btn8.setVisible(true);            
+            
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));
+        }else{
+            if(btn8.isVisible()== false){
+                btn8.setText(btn7.getText());
+                btn7.setVisible(false);
+                btn8.setVisible(true);            
+                
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));
+            }            
         }
     }//GEN-LAST:event_btn7ActionPerformed
 
+    public void troca7(){
+        if(btn4.isVisible()== false){
+            btn4.setText(btn7.getText());
+            btn7.setVisible(false);
+            btn4.setVisible(true);            
+            
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));
+        }else{
+            if(btn8.isVisible()== false){
+                btn8.setText(btn7.getText());
+                btn7.setVisible(false);
+                btn8.setVisible(true);            
+                
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));
+            }            
+        }
+    }
+    
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
         // TODO add your handling code here:
         if(btn2.isVisible()== false){
             btn2.setText(btn5.getText());
             btn5.setVisible(false);
-            btn2.setVisible(true);            
-        }
-        if(btn4.isVisible()== false){
-            btn4.setText(btn5.getText());
-            btn5.setVisible(false);
-            btn4.setVisible(true);            
-        }
-        if(btn6.isVisible()== false){
-            btn6.setText(btn5.getText());
-            btn5.setVisible(false);
-            btn6.setVisible(true);            
-        }
-        if(btn8.isVisible()== false){
-            btn8.setText(btn5.getText());
-            btn5.setVisible(false);
-            btn8.setVisible(true);            
+            btn2.setVisible(true);          
+            
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));
+        }else{
+            if(btn4.isVisible()== false){
+                btn4.setText(btn5.getText());
+                btn5.setVisible(false);
+                btn4.setVisible(true);            
+            
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));
+            }else{
+                if(btn6.isVisible()== false){
+                    btn6.setText(btn5.getText());
+                    btn5.setVisible(false);
+                    btn6.setVisible(true);            
+             
+                    N_movimentos++;
+                    Jtxt1.setText(Integer.toString(N_movimentos));
+                }else{
+                    if(btn8.isVisible()== false){
+                        btn8.setText(btn5.getText());
+                        btn5.setVisible(false);
+                        btn8.setVisible(true);            
+                            
+                        N_movimentos++;
+                        Jtxt1.setText(Integer.toString(N_movimentos));
+                    }
+                }
+            }
         }
     }//GEN-LAST:event_btn5ActionPerformed
 
+    public void troca5(){
+        if(btn2.isVisible()== false){
+            btn2.setText(btn5.getText());
+            btn5.setVisible(false);
+            btn2.setVisible(true);          
+            
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));
+        }else{
+            if(btn4.isVisible()== false){
+                btn4.setText(btn5.getText());
+                btn5.setVisible(false);
+                btn4.setVisible(true);            
+            
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));
+            }else{
+                if(btn6.isVisible()== false){
+                    btn6.setText(btn5.getText());
+                    btn5.setVisible(false);
+                    btn6.setVisible(true);            
+             
+                    N_movimentos++;
+                    Jtxt1.setText(Integer.toString(N_movimentos));
+                }else{
+                    if(btn8.isVisible()== false){
+                        btn8.setText(btn5.getText());
+                        btn5.setVisible(false);
+                        btn8.setVisible(true);            
+                            
+                        N_movimentos++;
+                        Jtxt1.setText(Integer.toString(N_movimentos));
+                    }
+                }
+            }
+        }
+    }
+    
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         // TODO add your handling code here:
         if(btn1.isVisible()== false){
             btn1.setText(btn4.getText());
             btn4.setVisible(false);
             btn1.setVisible(true);            
-        }
-        if(btn5.isVisible()== false){
-            btn5.setText(btn4.getText());
-            btn4.setVisible(false);
-            btn5.setVisible(true);            
-        }
-        if(btn7.isVisible()== false){
-            btn7.setText(btn4.getText());
-            btn4.setVisible(false);
-            btn7.setVisible(true);            
+            
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));
+        }else{
+            if(btn5.isVisible()== false){
+                btn5.setText(btn4.getText());
+                btn4.setVisible(false);
+                btn5.setVisible(true);            
+                
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));                
+            }else{
+                if(btn7.isVisible()== false){
+                    btn7.setText(btn4.getText());
+                    btn4.setVisible(false);
+                    btn7.setVisible(true);            
+                    
+                    N_movimentos++;
+                    Jtxt1.setText(Integer.toString(N_movimentos));                
+                }
+            }
         }
     }//GEN-LAST:event_btn4ActionPerformed
 
+    public void troca4(){
+        if(btn1.isVisible()== false){
+            btn1.setText(btn4.getText());
+            btn4.setVisible(false);
+            btn1.setVisible(true);            
+            
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));
+        }else{
+            if(btn5.isVisible()== false){
+                btn5.setText(btn4.getText());
+                btn4.setVisible(false);
+                btn5.setVisible(true);            
+                
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));                
+            }else{
+                if(btn7.isVisible()== false){
+                    btn7.setText(btn4.getText());
+                    btn4.setVisible(false);
+                    btn7.setVisible(true);            
+                    
+                    N_movimentos++;
+                    Jtxt1.setText(Integer.toString(N_movimentos));                
+                }
+            }
+        }
+    }
+    
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         // TODO add your handling code here:
         if(btn2.isVisible()== false){
             btn2.setText(btn3.getText());
             btn3.setVisible(false);
             btn2.setVisible(true);            
+            
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));
+        }else{
+            if(btn6.isVisible()== false){
+                btn6.setText(btn3.getText());
+                btn3.setVisible(false);
+                btn6.setVisible(true);            
+                
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));
+            }
         }
-        if(btn6.isVisible()== false){
-            btn6.setText(btn3.getText());
-            btn3.setVisible(false);
-            btn6.setVisible(true);            
-        }
-        
     }//GEN-LAST:event_btn3ActionPerformed
 
+    public void troca3(){
+        if(btn2.isVisible()== false){
+            btn2.setText(btn3.getText());
+            btn3.setVisible(false);
+            btn2.setVisible(true);            
+            
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));
+        }else{
+            if(btn6.isVisible()== false){
+                btn6.setText(btn3.getText());
+                btn3.setVisible(false);
+                btn6.setVisible(true);            
+                
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));
+            }
+        }
+    }
+    
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         // TODO add your handling code here:
         if(btn1.isVisible()== false){
             btn1.setText(btn2.getText());
             btn2.setVisible(false);
             btn1.setVisible(true);            
+            
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));
+        }else{
+            if(btn3.isVisible()== false){
+                btn3.setText(btn2.getText());
+                btn2.setVisible(false);
+                btn3.setVisible(true);            
+            
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));
+            }else{
+                if(btn5.isVisible()== false){
+                    btn5.setText(btn2.getText());
+                    btn2.setVisible(false);
+                    btn5.setVisible(true);            
+                    
+                    N_movimentos++;
+                    Jtxt1.setText(Integer.toString(N_movimentos));
+                }
+            }
         }
-        if(btn3.isVisible()== false){
-            btn3.setText(btn2.getText());
+    }
+        
+    public void troca2(){
+        if(btn1.isVisible()== false){
+            btn1.setText(btn2.getText());
             btn2.setVisible(false);
-            btn3.setVisible(true);            
-        }
-        if(btn5.isVisible()== false){
-            btn5.setText(btn2.getText());
-            btn2.setVisible(false);
-            btn5.setVisible(true);            
-        }
+            btn1.setVisible(true);            
+            
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));
+        }else{
+            if(btn3.isVisible()== false){
+                btn3.setText(btn2.getText());
+                btn2.setVisible(false);
+                btn3.setVisible(true);            
+            
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));
+            }else{
+                if(btn5.isVisible()== false){
+                    btn5.setText(btn2.getText());
+                    btn2.setVisible(false);
+                    btn5.setVisible(true);            
+                    
+                    N_movimentos++;
+                    Jtxt1.setText(Integer.toString(N_movimentos));
+                }
+            }
+        }    
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
@@ -303,14 +619,45 @@ public class InterfaceGrafica extends javax.swing.JFrame {
         if(btn2.isVisible()== false){
             btn2.setText(btn1.getText());
             btn1.setVisible(false);
-            btn2.setVisible(true);            
-        }
-        if(btn4.isVisible()== false){
-            btn4.setText(btn1.getText());
-            btn1.setVisible(false);
-            btn4.setVisible(true);            
+            btn2.setVisible(true);
+            
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));
+        }else{
+            if(btn4.isVisible()== false){
+                btn4.setText(btn1.getText());
+                btn1.setVisible(false);
+                btn4.setVisible(true);            
+            
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));
+            }
         }
     }//GEN-LAST:event_btn1ActionPerformed
+
+    public void troca1(){
+        if(btn2.isVisible()== false){
+            btn2.setText(btn1.getText());
+            btn1.setVisible(false);
+            btn2.setVisible(true);
+            
+            N_movimentos++;
+            Jtxt1.setText(Integer.toString(N_movimentos));
+        }else{
+            if(btn4.isVisible()== false){
+                btn4.setText(btn1.getText());
+                btn1.setVisible(false);
+                btn4.setVisible(true);            
+            
+                N_movimentos++;
+                Jtxt1.setText(Integer.toString(N_movimentos));
+            }
+        }        
+    }
+    
+    private void Jtxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jtxt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jtxt1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -347,6 +694,7 @@ public class InterfaceGrafica extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Jtxt1;
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn2;
     private javax.swing.JButton btn3;
@@ -356,6 +704,8 @@ public class InterfaceGrafica extends javax.swing.JFrame {
     private javax.swing.JButton btn7;
     private javax.swing.JButton btn8;
     private javax.swing.JButton btn9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
