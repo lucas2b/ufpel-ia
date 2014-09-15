@@ -1,11 +1,12 @@
-public class JogodosOito{
+
+public class Jogo{
 	int matriz[][] = new int[][]{
 									{0,1,2},
 									{3,4,5},
 									{6,7,8}
 	};
 	
-	public JogodosOito(){
+	public Jogo(){
 		
 	}
 	
@@ -50,7 +51,7 @@ public class JogodosOito{
 	
 	
 	public static void main(String[] args) {
-		JogodosOito jo = new JogodosOito();
+		Jogo jo = new Jogo();
 	}
 
 }	
