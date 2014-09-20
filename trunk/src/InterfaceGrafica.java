@@ -34,7 +34,7 @@ public class InterfaceGrafica extends javax.swing.JFrame {
 
 		JButton button_array[] = { btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9 };
 
-		// Reordena os nÃºmeros
+		// Reordena os números
 		for (int i = 0; i <= 8; i++) {
 			button_array[i].setText(Integer.toString(lista[i]));
 			btn8.setName("btn" + i);
@@ -44,7 +44,6 @@ public class InterfaceGrafica extends javax.swing.JFrame {
 				button_array[i].setVisible(true);
 			}
 		}
-
 	}
 
 	/**
